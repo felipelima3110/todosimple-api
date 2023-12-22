@@ -2,8 +2,6 @@ package com.lucasangelo.todosimple.services;
 
 import java.util.Optional;
 
-import javax.management.RuntimeErrorException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,7 +21,7 @@ public class UserService {
     private TaskRepository taskRepository;
 
     public User findById(Long id){
-        Optional<User> user = this.userRepository.findById(Id);
+        Optional<User> user = this.userRepository.findById(id);
         return user.orElseThrow(() -> new RuntimeException(
             "Usuário não encontrado! Id: " + id + ", Tipo: " + User.class.getName()
         ));
@@ -52,9 +50,6 @@ public class UserService {
             throw new RuntimeException("Não é possível excluir, pois há entidades relacionadas!");
         }
     }
-
-
    
-    
     
 }
