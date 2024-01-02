@@ -6,6 +6,7 @@ package com.lucasangelo.todosimple.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -63,7 +64,7 @@ public class User {
     }
 
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Long id) {
@@ -71,7 +72,7 @@ public class User {
     }
 
     public String getUsername() {
-        return username;
+        return this.username;
     }
 
     public void setUsername(String username) {
@@ -79,7 +80,7 @@ public class User {
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public void setPassword(String password) {
@@ -87,9 +88,9 @@ public class User {
     }
 
     
-    
+    @JsonIgnore
     public List<Task> getTasks() {
-        return tasks;
+        return this.tasks;
     }
 
     public void setTasks(List<Task> tasks) {
